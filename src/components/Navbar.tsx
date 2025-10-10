@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a
             href="#hero"
-            className="font-serif font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors"
+            className="font-serif font-bold text-xl md:text-2xl text-white hover:text-primary transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('#hero');
