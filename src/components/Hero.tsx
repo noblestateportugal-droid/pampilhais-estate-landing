@@ -1,18 +1,40 @@
 import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
+import { Download, Loader2 } from 'lucide-react';
+import { useState } from 'react';
 import heroImage from '@/assets/hero-estate.jpg';
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <section id="hero" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Poster and Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Aerial view of Pampilhais Estate in Alentejo, Portugal"
+        {/* Loading Spinner */}
+        {!videoLoaded && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/20">
+            <Loader2 className="h-12 w-12 text-white animate-spin" />
+          </div>
+        )}
+        
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImage}
+          preload="metadata"
+          onLoadedData={() => setVideoLoaded(true)}
           className="w-full h-full object-cover"
-          loading="eager"
-        />
+        >
+          <source src="/Pampilhais_Hero_Video.mp4" type="video/mp4" />
+          {/* Fallback image if video fails */}
+          <img
+            src={heroImage}
+            alt="Aerial view of Pampilhais Estate in Alentejo, Portugal"
+            className="w-full h-full object-cover"
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
 
