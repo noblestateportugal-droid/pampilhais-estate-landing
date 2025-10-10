@@ -59,7 +59,7 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="text-sm font-medium text-white hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
