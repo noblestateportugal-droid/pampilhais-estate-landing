@@ -40,29 +40,18 @@ const VantageView = () => {
             visibility extends up to <strong className="text-foreground">~80 km</strong>.
           </p>
 
-          {/* 360 Viewer Placeholder */}
+          {/* 360 Video */}
           <div className="relative aspect-video bg-muted rounded-2xl overflow-hidden mb-10 shadow-lg">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <Eye className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                <p className="text-lg text-muted-foreground">
-                  360° Interactive View
-                  <br />
-                  <span className="text-sm">(Embed Kuula / Matterport / YouTube 360)</span>
-                </p>
-              </div>
-            </div>
-            {/* Replace with actual embed:
             <iframe
-              src="YOUR_360_EMBED_URL"
+              src="https://www.youtube.com/embed/pt8SPVOK3-0"
               width="100%"
               height="100%"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="360° view of Pampilhais homesite location"
+              className="absolute inset-0"
             />
-            */}
           </div>
 
           <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground mb-6 text-center">
