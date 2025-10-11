@@ -13,19 +13,8 @@ const MapSection = () => {
         </p>
 
         <div className="relative aspect-video bg-muted rounded-2xl overflow-hidden shadow-lg">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <p className="text-lg text-muted-foreground">
-                Interactive Map
-                <br />
-                <span className="text-sm">(Google Maps Embed)</span>
-              </p>
-            </div>
-          </div>
-          {/* Replace with actual Google Maps embed:
           <iframe
-            src="YOUR_GOOGLE_MAPS_EMBED_URL"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d25107.64980998999!2d-8.614774100825564!3d38.12958329999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDA3JzQ2LjUiTiA4wrAzNCczNi4wIlc!5e0!3m2!1sen!2sin!4v1760185982419!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -34,7 +23,6 @@ const MapSection = () => {
             referrerPolicy="no-referrer-when-downgrade"
             title="Map showing Pampilhais Estate location near Grândola, Melides, and Comporta"
           />
-          */}
         </div>
 
         <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto">

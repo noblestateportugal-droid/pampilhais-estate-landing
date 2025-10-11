@@ -62,7 +62,7 @@ const PropertyDescription = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
               onClick={() => {
-                window.open('/assets/Pampilhais_Brochure.pdf', '_blank');
+                window.open('/Brochure_Pampilhais.pdf', '_blank');
               }}
             >
               <Download className="mr-2 h-5 w-5" />

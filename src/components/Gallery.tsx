@@ -5,6 +5,7 @@ import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
 import gallery4 from '@/assets/gallery-4.jpg';
 import gallery5 from '@/assets/gallery-5.jpg';
+import galleryMap from '@/assets/gallery-map.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -15,6 +16,7 @@ const Gallery = () => {
     { src: gallery3, alt: 'Estate buildings set in verdant countryside' },
     { src: gallery4, alt: 'Rustic farm structures with cork oak forest backdrop' },
     { src: gallery5, alt: 'Sweeping vista with ocean views on the horizon' },
+    { src: galleryMap, alt: 'Location map showing Pampilhais Estate and surrounding areas' },
   ];
 
   const openLightbox = (index: number) => {
@@ -44,13 +46,14 @@ const Gallery = () => {
           Property Gallery
         </h2>
 
-        <div className="relative overflow-x-auto">
-          <div className="flex gap-4 md:gap-6 pb-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide">
+        {/* Mobile: Horizontal scrollable gallery */}
+        <div className="md:hidden relative overflow-x-auto">
+          <div className="flex gap-4 pb-4 snap-x snap-mandatory overflow-x-auto scrollbar-hide">
             {images.map((image, index) => (
               <button
                 key={index}
                 onClick={() => openLightbox(index)}
-                className="relative flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] aspect-[4/3] overflow-hidden rounded-xl group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary snap-start"
+                className="relative flex-shrink-0 w-[280px] sm:w-[320px] aspect-[4/3] overflow-hidden rounded-xl group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary snap-start"
                 aria-label={`View ${image.alt}`}
               >
                 <img
@@ -63,6 +66,26 @@ const Gallery = () => {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Desktop: Multi-column grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {images.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => openLightbox(index)}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label={`View ${image.alt}`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            </button>
+          ))}
         </div>
       </div>
 

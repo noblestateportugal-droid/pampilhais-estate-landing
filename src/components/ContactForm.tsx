@@ -42,31 +42,19 @@ const ContactForm = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-
-    try {
-      // Placeholder for form submission
-      // In production, POST to Netlify Forms or serverless function
-      console.log('Form data:', data);
-      
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
-
-      toast({
-        title: 'Message Sent!',
-        description: 'Thank you for your interest. Caroline will contact you shortly.',
-      });
-
-      reset();
-    } catch (error) {
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const onSubmit = (data: ContactFormData) => {
+    const subject = encodeURIComponent('Pampilhais Investment Inquiry');
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+    );
+    window.location.href = `mailto:info@nobletate.pt?subject=${subject}&body=${body}`;
+    
+    toast({
+      title: 'Opening Email Client',
+      description: 'Your default email client will open with the message pre-filled.',
+    });
+    
+    reset();
   };
 
   return (
@@ -155,9 +143,8 @@ const ContactForm = () => {
                 <Button
                   type="submit"
                   className="w-full bg-primary hover:bg-primary/90"
-                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Send Message
                 </Button>
               </form>
             </div>
@@ -182,11 +169,10 @@ const ContactForm = () => {
                 variant="default"
                 className="w-full bg-accent hover:bg-accent/90"
                 onClick={() => {
-                  // Placeholder - would open WhatsApp or booking link
-                  window.open('CHAT_LINK_URL', '_blank');
+                  window.open('https://wa.me/+351939517942', '_blank');
                 }}
               >
-                Start a Conversation
+                Speak to Caroline on WhatsApp
               </Button>
             </div>
           </div>
