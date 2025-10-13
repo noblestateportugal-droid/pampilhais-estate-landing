@@ -6,6 +6,9 @@ import gallery3 from '@/assets/gallery-3.jpg';
 import gallery4 from '@/assets/gallery-4.jpg';
 import gallery5 from '@/assets/gallery-5.jpg';
 import galleryMap from '@/assets/gallery-map.jpg';
+import drone1 from '@/assets/drone-1.jpg';
+import drone2 from '@/assets/drone-2.jpg';
+import drone3 from '@/assets/drone-3.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -17,6 +20,9 @@ const Gallery = () => {
     { src: gallery4, alt: 'Rustic farm structures with cork oak forest backdrop' },
     { src: gallery5, alt: 'Sweeping vista with ocean views on the horizon' },
     { src: galleryMap, alt: 'Location map showing Pampilhais Estate and surrounding areas' },
+    { src: drone1, alt: 'Aerial drone view of Pampilhais Estate showing expansive landscape' },
+    { src: drone2, alt: 'Drone photography capturing estate buildings and surrounding terrain' },
+    { src: drone3, alt: 'Bird\'s eye view of cork oak forests and natural vegetation' },
   ];
 
   const openLightbox = (index: number) => {
@@ -86,6 +92,22 @@ const Gallery = () => {
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </button>
           ))}
+        </div>
+
+        {/* YouTube Video Section */}
+        <div className="mt-10 max-w-5xl mx-auto">
+          <div className="relative aspect-video bg-muted rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/_-AsZpupTgA"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Pampilhais Estate video tour"
+              className="absolute inset-0"
+            />
+          </div>
         </div>
       </div>
 
