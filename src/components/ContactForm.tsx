@@ -47,7 +47,7 @@ const ContactForm = () => {
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
     );
-    window.location.href = `mailto:info@nobletate.pt?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:noblestate.portugal@gmail.com?subject=${subject}&body=${body}`;
     
     toast({
       title: 'Opening Email Client',
