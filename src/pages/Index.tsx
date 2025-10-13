@@ -7,6 +7,7 @@ import VantageView from '@/components/VantageView';
 import MapSection from '@/components/MapSection';
 import InvestmentSnapshot from '@/components/InvestmentSnapshot';
 import ContactForm from '@/components/ContactForm';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 
@@ -25,6 +26,7 @@ const Index = () => {
         <InvestmentSnapshot />
         <ContactForm />
       </main>
+      <FAQ />
       <Footer />
     </>
   );
