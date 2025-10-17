@@ -7,7 +7,7 @@ const PropertyHighlights = () => {
       icon: Euro,
       label: 'Price',
       value: '€1,200,000',
-      subtitle: '(flexible to €1,100,000)',
+      subtitle: '',
     },
     {
       icon: MapPin,
