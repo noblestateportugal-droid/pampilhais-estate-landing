@@ -1,35 +1,38 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Building2, CheckCircle2, Download } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const InvestmentSnapshot = () => {
+  const { t } = useLanguage();
+  
   const appreciationPoints = [
-    'Rural/agri land up ~33% (2021–2023); some regions doubled',
-    'Residential/tourism near Comporta & Melides: +28% annual growth',
-    'Some luxury segments tripled in value over two years',
+    t('investment.appreciation1'),
+    t('investment.appreciation2'),
+    t('investment.appreciation3'),
   ];
 
   const majorProjects = [
     {
-      name: 'Six Senses Comporta',
-      description: '€1.7B eco-resort & branded residences (Pinheirinho)',
+      name: t('investment.project1Name'),
+      description: t('investment.project1Desc'),
     },
     {
-      name: 'Costa Terra Ocean & Golf Club',
-      description: 'Private resort community by Discovery Land Company (Melides)',
+      name: t('investment.project2Name'),
+      description: t('investment.project2Desc'),
     },
     {
-      name: 'Vermelho Hotel',
-      description: 'Boutique hotel by Christian Louboutin (Melides)',
+      name: t('investment.project3Name'),
+      description: t('investment.project3Desc'),
     },
   ];
 
   const whyPampilhais = [
-    'Strategic position between luxury destinations',
-    'Sustainable natural resources (dam, well, cork forest)',
-    'Clear zoning path (residential/agricultural/tourism)',
-    'Private sale (no agent commissions)',
-    'Eligible for direct investment or joint venture',
+    t('investment.why1'),
+    t('investment.why2'),
+    t('investment.why3'),
+    t('investment.why4'),
+    t('investment.why5'),
   ];
 
   return (
@@ -37,13 +40,12 @@ const InvestmentSnapshot = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 text-center">
-            Investment Snapshot:
+            {t('investment.title1')}
             <br />
-            <span className="text-primary">Alentejo's Growth Story</span>
+            <span className="text-primary">{t('investment.title2')}</span>
           </h2>
           <p className="text-center text-base md:text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-            The Alentejo region has seen explosive growth in luxury real estate and hospitality,
-            with €1.3B+ invested in nearby developments.
+            {t('investment.subtitle')}
           </p>
 
           {/* Land Appreciation */}
@@ -55,7 +57,7 @@ const InvestmentSnapshot = () => {
                     <TrendingUp className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground">
-                    Land Appreciation
+                    {t('investment.appreciationTitle')}
                   </h3>
                 </div>
                 <ul className="space-y-3">
@@ -79,13 +81,10 @@ const InvestmentSnapshot = () => {
                     <Building2 className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground">
-                    Investment Environment
+                    {t('investment.environmentTitle')}
                   </h3>
                 </div>
-                <p className="text-base text-foreground/80 mb-6">
-                  <strong className="text-foreground">€1.3B+ invested</strong> in nearby luxury
-                  resorts and hospitality (Comporta, Melides, Carvalhal, Tróia).
-                </p>
+                <p className="text-base text-foreground/80 mb-6" dangerouslySetInnerHTML={{ __html: t('investment.environmentSubtitle') }} />
                 <div className="space-y-4">
                   {majorProjects.map((project, index) => (
                     <div key={index} className="border-l-4 border-primary pl-4">
@@ -101,7 +100,7 @@ const InvestmentSnapshot = () => {
           {/* Why Pampilhais */}
           <div className="bg-card border border-border rounded-2xl p-6 md:p-8 mb-10 shadow-md">
             <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground mb-6 text-center">
-              Why Pampilhais?
+              {t('investment.whyTitle')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {whyPampilhais.map((reason, index) => (
@@ -122,7 +121,7 @@ const InvestmentSnapshot = () => {
               }}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download the Brochure
+              {t('investment.cta')}
             </Button>
           </div>
         </div>

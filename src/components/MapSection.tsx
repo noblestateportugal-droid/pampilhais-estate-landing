@@ -1,15 +1,17 @@
 import { MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const MapSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="map" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 text-center">
-          Strategic Location
+          {t('map.title')}
         </h2>
         <p className="text-center text-base md:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Pampilhais is perfectly positioned between Grândola, Melides, and Comporta — Portugal's
-          most sought-after coastal destinations.
+          {t('map.subtitle')}
         </p>
 
         <div className="relative aspect-video bg-muted rounded-2xl overflow-hidden shadow-lg">

@@ -4,46 +4,49 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQ = () => {
+  const { t } = useLanguage();
+  
   const faqs = [
     {
-      question: "Is construction allowed, or is it only rustic land?",
+      question: t('faq.q1'),
       answer: (
         <>
-          <p className="mb-3">Yes—development is possible under municipal rules:</p>
+          <p className="mb-3">{t('faq.a1.intro')}</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Private residence:</strong> a 500 m² home project has been submitted to Grândola City Council.</li>
-            <li><strong>Tourism use:</strong> (see zoning note below).</li>
-            <li><strong>Agricultural support buildings:</strong> (see zoning note below).</li>
+            <li dangerouslySetInnerHTML={{ __html: t('faq.a1.point1') }} />
+            <li dangerouslySetInnerHTML={{ __html: t('faq.a1.point2') }} />
+            <li dangerouslySetInnerHTML={{ __html: t('faq.a1.point3') }} />
           </ul>
-          <p className="mt-3">You can also renovate the existing houses for short-term letting (requires the appropriate local license).</p>
+          <p className="mt-3">{t('faq.a1.outro')}</p>
         </>
       )
     },
     {
-      question: "Is there a public road crossing the property?",
-      answer: "A public passage (~400 m) runs along the eastern boundary and nicks a corner (~50 m) as access for neighboring lands. All other internal roads (≈5 km) are exclusive to Pampilhais."
+      question: t('faq.q2'),
+      answer: t('faq.a2')
     },
     {
-      question: "Do neighboring plots require access across this land?",
-      answer: "Only the public passage described above is used; otherwise, no additional easements are granted through the property."
+      question: t('faq.q3'),
+      answer: t('faq.a3')
     },
     {
-      question: "Do you have a topographic survey?",
-      answer: "Yes—topography is available and can be shared in the data room."
+      question: t('faq.q4'),
+      answer: t('faq.a4')
     },
     {
-      question: "Are there municipal or government projects planned for this area?",
-      answer: "No. The municipality and central government currently have no projects slated for this area."
+      question: t('faq.q5'),
+      answer: t('faq.a5')
     },
     {
-      question: "Have you offered the land to neighbors (right of first refusal)?",
-      answer: "Neighbors will be formally notified after a sale value is agreed with the purchaser, per local rules."
+      question: t('faq.q6'),
+      answer: t('faq.a6')
     },
     {
-      question: "Water resources?",
-      answer: "Two independent sources: a well and a spring-fed lake/dam. The lake can potentially be enlarged and treated to become a natural swimming lake, subject to technical and environmental approvals."
+      question: t('faq.q7'),
+      answer: t('faq.a7')
     }
   ];
 
@@ -52,10 +55,10 @@ const FAQ = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif font-bold text-3xl md:text-4xl text-center mb-3">
-            Investor FAQ
+            {t('faq.title')}
           </h2>
           <p className="text-center text-muted-foreground mb-12">
-            Find answers to the most frequently asked questions about Pampilhais Estate
+            {t('faq.subtitle')}
           </p>
           
           <Accordion type="single" collapsible className="w-full">

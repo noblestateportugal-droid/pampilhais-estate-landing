@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
@@ -11,6 +12,7 @@ import drone2 from '@/assets/drone-2.jpg';
 import drone3 from '@/assets/drone-3.jpg';
 
 const Gallery = () => {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
@@ -49,7 +51,7 @@ const Gallery = () => {
     <section id="gallery" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-10 text-center">
-          Property Gallery
+          {t('gallery.title')}
         </h2>
 
         {/* Mobile: Horizontal scrollable gallery */}

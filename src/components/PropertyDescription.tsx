@@ -1,11 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Download, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PropertyDescription = () => {
+  const { t } = useLanguage();
+  
   const developmentPoints = [
-    '500 m² residential villa project submitted to CMG',
-    '8,000 m² agricultural structures approved for rural operations',
-    'Tourism project potential: ~110 beds (subject to final municipal confirmation)',
+    t('description.point1'),
+    t('description.point2'),
+    t('description.point3'),
   ];
 
   return (
@@ -13,33 +16,20 @@ const PropertyDescription = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 text-center">
-            A Rare Land Investment in Portugal's
+            {t('description.title1')}
             <br />
-            <span className="text-primary">Fastest-Growing Luxury Corridor</span>
+            <span className="text-primary">{t('description.title2')}</span>
           </h2>
 
           <div className="space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed mb-10">
-            <p>
-              Discover <strong className="text-foreground">Pampilhais</strong> — a 40.7-hectare
-              estate located on the border between Grândola and Santa Margarida da Serra, in the
-              heart of the Alentejo countryside. Just 30 minutes from Comporta and 20 minutes from
-              Melides, this property combines natural beauty, development potential, and long-term
-              appreciation.
-            </p>
-
-            <p>
-              The land includes over <strong className="text-foreground">5 km of newly built
-              internal roads</strong>, with sweeping panoramic views across cork oaks, holm oaks,
-              and strawberry trees. A private dam with a natural spring and a well ensure
-              sustainable water supply year-round — ideal for both agricultural and hospitality
-              uses.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t('description.para1') }} />
+            <p dangerouslySetInnerHTML={{ __html: t('description.para2') }} />
           </div>
 
           {/* Zoning and Development Potential */}
           <div className="bg-card border border-border rounded-2xl p-6 md:p-8 mb-8 shadow-md">
             <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground mb-6">
-              Zoning and Development Potential
+              {t('description.zoningTitle')}
             </h3>
             <ul className="space-y-4">
               {developmentPoints.map((point, index) => (
@@ -51,11 +41,7 @@ const PropertyDescription = () => {
             </ul>
           </div>
 
-          <p className="text-lg md:text-xl text-center text-foreground/70 mb-8 italic">
-            Exceptional for: <strong className="text-foreground">boutique eco-resort/wellness
-            retreat</strong> • <strong className="text-foreground">private family estate</strong> •{' '}
-            <strong className="text-foreground">regenerative agriculture + tourism</strong>
-          </p>
+          <p className="text-lg md:text-xl text-center text-foreground/70 mb-8 italic" dangerouslySetInnerHTML={{ __html: t('description.exceptional') }} />
 
           <div className="text-center">
             <Button
@@ -66,7 +52,7 @@ const PropertyDescription = () => {
               }}
             >
               <Download className="mr-2 h-5 w-5" />
-              Download the Investor Brochure
+              {t('description.cta')}
             </Button>
           </div>
         </div>
