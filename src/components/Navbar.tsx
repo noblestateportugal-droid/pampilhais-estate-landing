@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +18,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Property', href: '#property' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: '360° View', href: '#vantage' },
-    { label: 'Investment', href: '#investment' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('nav.highlights'), href: '#highlights' },
+    { label: t('nav.description'), href: '#description' },
+    { label: t('nav.gallery'), href: '#gallery' },
+    { label: t('nav.vantage'), href: '#vantage' },
+    { label: t('nav.map'), href: '#map' },
+    { label: t('nav.investment'), href: '#investment' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -50,7 +54,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -64,13 +68,14 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <Button
               variant="default"
               size="sm"
               onClick={() => scrollToSection('#contact')}
               className="bg-primary hover:bg-primary/90"
             >
-              Get in Touch
+              {t('nav.contact')}
             </Button>
           </div>
 
@@ -105,13 +110,16 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-2 space-y-3">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
                 <Button
                   variant="default"
                   className="w-full bg-primary hover:bg-primary/90"
                   onClick={() => scrollToSection('#contact')}
                 >
-                  Get in Touch
+                  {t('nav.contact')}
                 </Button>
               </div>
             </div>

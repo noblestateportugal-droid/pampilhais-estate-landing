@@ -1,27 +1,30 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Eye, Home, Compass, Image as ImageIcon } from 'lucide-react';
+import { Home, Eye, Hammer, TrendingUp } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const VantageView = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: Home,
-      title: 'Pre-submitted homesite',
-      description: 'Faster path to a signature residence',
-    },
-    {
-      icon: Compass,
-      title: 'Commanding outlook',
-      description: 'Guiding master-planning across 40.7 ha',
+      title: t('vantage.feature1.title'),
+      description: t('vantage.feature1.desc'),
     },
     {
       icon: Eye,
-      title: 'Orientation clarity',
-      description: 'Optimize solar, wind, privacy',
+      title: t('vantage.feature2.title'),
+      description: t('vantage.feature2.desc'),
     },
     {
-      icon: ImageIcon,
-      title: 'Storytelling asset',
-      description: 'For private estate or boutique eco-hospitality',
+      icon: Hammer,
+      title: t('vantage.feature3.title'),
+      description: t('vantage.feature3.desc'),
+    },
+    {
+      icon: TrendingUp,
+      title: t('vantage.feature4.title'),
+      description: t('vantage.feature4.desc'),
     },
   ];
 
@@ -30,14 +33,12 @@ const VantageView = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 text-center">
-            360° Vantage — Homesite In Approval
-            <span className="block text-2xl md:text-3xl text-primary mt-2">(500 m²)</span>
+            {t('vantage.title')}
+            <span className="block text-2xl md:text-3xl text-primary mt-2">{t('vantage.subtitle')}</span>
           </h2>
 
           <p className="text-base md:text-lg text-foreground/80 text-center mb-6 max-w-3xl mx-auto">
-            This 360° video was captured exactly at the location where the 500 m² private residence
-            project has been submitted to Grândola City Council for approval. On clear days,
-            visibility extends up to <strong className="text-foreground">~80 km</strong>.
+            {t('vantage.description')} <strong className="text-foreground">~80 km</strong>.
           </p>
 
           {/* 360 Video */}
@@ -55,7 +56,7 @@ const VantageView = () => {
           </div>
 
           <h3 className="font-serif font-semibold text-2xl md:text-3xl text-foreground mb-6 text-center">
-            Why This Spot Matters
+            {t('vantage.whyTitle')}
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">

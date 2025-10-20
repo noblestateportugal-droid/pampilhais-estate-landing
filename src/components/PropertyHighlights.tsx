@@ -1,31 +1,34 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Euro, Maximize2, Navigation } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const PropertyHighlights = () => {
+  const { t } = useLanguage();
+  
   const highlights = [
     {
       icon: Euro,
-      label: 'Price',
+      label: t('highlights.price'),
       value: '€1,200,000',
       subtitle: '',
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Grândola / Santa Margarida da Serra',
-      subtitle: 'Alentejo, Portugal',
+      label: t('highlights.location'),
+      value: t('highlights.locationValue'),
+      subtitle: t('highlights.locationSub'),
     },
     {
       icon: Maximize2,
-      label: 'Total Area',
-      value: '40.7 hectares',
-      subtitle: '(407,000 m²)',
+      label: t('highlights.area'),
+      value: t('highlights.areaValue'),
+      subtitle: t('highlights.areaSub'),
     },
     {
       icon: Navigation,
-      label: 'Access',
-      value: 'Strategic Position',
-      subtitle: 'Grândola 12 min • Melides Beach 20 min',
+      label: t('highlights.access'),
+      value: t('highlights.accessValue'),
+      subtitle: t('highlights.accessSub'),
     },
   ];
 
