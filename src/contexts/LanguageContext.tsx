@@ -45,6 +45,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
         
         // Property Highlights
         'highlights.price': 'Price',
+        'highlights.priceValue': 'Price Upon Request',
         'highlights.location': 'Location',
         'highlights.locationValue': 'Grândola / Santa Margarida da Serra',
         'highlights.locationSub': 'Alentejo, Portugal',
@@ -182,6 +183,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
         
         // Property Highlights
         'highlights.price': 'Preço',
+        'highlights.priceValue': 'Preço Sob Consulta',
         'highlights.location': 'Localização',
         'highlights.locationValue': 'Grândola / Santa Margarida da Serra',
         'highlights.locationSub': 'Alentejo, Portugal',
