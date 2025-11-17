@@ -9,7 +9,7 @@ const PropertyHighlights = () => {
     {
       icon: Euro,
       label: t('highlights.price'),
-      value: '€1,200,000',
+      value: t('highlights.priceValue'),
       subtitle: '',
     },
     {
